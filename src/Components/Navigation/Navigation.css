@@ -1,0 +1,26 @@
+h1 {
+  color: rgb(11, 53, 110);
+  font-size: 3rem;
+}
+
+.header-container {
+  display: flex;
+  padding: 0 30px;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav li {
+  padding: 0 30px;
+}
+
+a {
+  color: black;
+}
+
+a:focus {
+  color: gray;
+}

@@ -1,0 +1,108 @@
+.booklist {
+  background-color: rgb(245, 240, 240);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.booklist > * {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.bookitem {
+  border: 1px rgb(200, 194, 194) solid;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bookitem > * {
+  padding: 30px;
+  letter-spacing: 0.05rem;
+}
+
+.interactions {
+  display: flex;
+  gap: 10px;
+}
+
+.interactions button {
+  margin-right: 10px;
+  padding-right: 10px;
+  border: none;
+  border-right: 1px rgb(200, 194, 194) solid;
+  background-color: white;
+  height: 20px;
+  color: rgb(126, 126, 217);
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: -10px;
+}
+
+.author {
+  color: rgb(126, 126, 217);
+}
+
+label {
+  display: none;
+}
+
+form {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 40% 30% 25%;
+}
+
+input {
+  padding: 15px;
+  border: 1px rgb(200, 194, 194) solid;
+  border-radius: 5px;
+}
+
+.submit {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(42, 126, 165);
+  color: white;
+}
+
+.completionCircle {
+  border: 5px rgb(42, 126, 165) solid;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  border-right-color: gray;
+  margin-right: 20px;
+}
+
+.percentage {
+  display: flex;
+  border-right: 2px rgb(200, 194, 194) solid;
+  height: 80px;
+  padding-right: 20px;
+}
+
+.update {
+  padding: 10px;
+  background-color: rgb(42, 126, 165);
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.chapter {
+  color: gray;
+  margin-bottom: -10px;
+}
+
+.verse {
+  font-size: 20px;
+}
+
+.completed {
+  color: gray;
+}

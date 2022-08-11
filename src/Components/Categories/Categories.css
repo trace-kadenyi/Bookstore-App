@@ -1,0 +1,16 @@
+.categories-container {
+  background-color: rgb(245, 240, 240);
+  min-height: 50vh;
+}
+
+.status {
+  padding: 20px;
+  margin: 50px;
+  width: 20%;
+  border-radius: 30px;
+  background-color: rgb(42, 126, 165);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 0.07rem;
+}
