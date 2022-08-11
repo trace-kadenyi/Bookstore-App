@@ -43,6 +43,11 @@
   margin-bottom: -10px;
 }
 
+.genre {
+  margin-bottom: -25px;
+  color: gray;
+}
+
 .author {
   color: rgb(126, 126, 217);
 }

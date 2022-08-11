@@ -4,6 +4,7 @@ import './Books.css';
 const BookItem = ({ title, author }) => (
   <li className="bookitem">
     <div>
+      <h4 className="genre">African Literature</h4>
       <h3 className="title">{title}</h3>
       <p className="author">{author}</p>
       <div className="interactions">

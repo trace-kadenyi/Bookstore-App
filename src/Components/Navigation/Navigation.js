@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
+import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
   const links = [
@@ -30,6 +31,9 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
+      </div>
+      <div>
+        <FaUser className="userIcon" />
       </div>
     </div>
   );

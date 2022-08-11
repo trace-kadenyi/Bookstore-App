@@ -4,9 +4,11 @@ h1 {
 }
 
 .header-container {
+  position: relative;
   display: flex;
   padding: 0 30px;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .nav {
@@ -23,4 +25,17 @@ a {
 
 a:focus {
   color: gray;
+}
+
+.userIcon {
+  position: absolute;
+  border: 1px gray solid;
+  border-radius: 50%;
+  color: rgb(42, 126, 165);
+  height: 3rem;
+  width: 3rem;
+  background-color: white;
+  top: 25%;
+  right: 5%;
+
 }
