@@ -1,5 +1,6 @@
 import React from 'react';
 import './Books.css';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
 
@@ -43,6 +44,15 @@ const BookItem = ({
       </div>
     </li>
   );
+};
+
+BookItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  chapter: PropTypes.number.isRequired,
+  progress: PropTypes.number.isRequired,
 };
 
 export default BookItem;

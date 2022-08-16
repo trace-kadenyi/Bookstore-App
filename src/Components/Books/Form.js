@@ -25,7 +25,7 @@ const Form = () => {
     }
   };
   return (
-    <form>
+    <form onSubmit={handleAdd}>
       <input
         onChange={(e) => setTitle(e.target.value)}
         type="text"
@@ -45,7 +45,6 @@ const Form = () => {
         required
       />
       <button
-        onClick={handleAdd}
         type="submit"
         className="submit"
       >
