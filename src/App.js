@@ -9,7 +9,7 @@ const App = () => (
   <Router>
     <Navbar />
     <Routes>
-      <Route exact path="/" element={<BookList title="Purple Hibiscus" author="Chimamanda Ngozi" />} />
+      <Route exact path="/" element={<BookList />} />
       <Route exact path="/categories" element={<Categories />} />
     </Routes>
   </Router>
