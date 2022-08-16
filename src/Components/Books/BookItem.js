@@ -1,5 +1,8 @@
 import React from 'react';
+import swal from 'sweetalert';
 import './Books.css';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
@@ -11,6 +14,7 @@ const BookItem = ({
 
   const handleRemove = () => {
     dispatch(removeBook(id));
+    swal('Deleted!', 'Book successfully removed!', 'success');
   };
 
   return (
@@ -31,11 +35,12 @@ const BookItem = ({
         </div>
       </div>
       <div className="percentage">
-        <div className="completionCircle" />
-        <h3 className="completed">
-          {progress}
-          % Completed
-        </h3>
+        <CircularProgressbar
+          style={{ width: 65, height: 65 }}
+          value={progress}
+          text={`${progress}%`}
+        />
+        Completed
       </div>
       <div>
         <h3 className="chapter">CURRENT CHAPTER</h3>
@@ -51,7 +56,7 @@ BookItem.propTypes = {
   author: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
-  chapter: PropTypes.number.isRequired,
+  chapter: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
 };
 

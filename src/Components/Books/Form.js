@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import swal from 'sweetalert';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../../redux/books/books';
 
@@ -15,11 +16,12 @@ const Form = () => {
       title,
       author,
       progress: 7,
-      chapter: 5,
+      chapter: 'Chapter 5',
       genre: 'African Literature',
     };
     if (title.length && author.length) {
       dispatch(addBook(book));
+      swal('Added!', 'Book successfully added!', 'success');
       setTitle('');
       setAuthor('');
     }
