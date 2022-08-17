@@ -1,61 +1,40 @@
 import { v4 as uuidv4 } from 'uuid';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 // Actions
 const ADD_BOOK = 'bookstore-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-app/books/REMOVE_BOOK';
+const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/QIVXJVX8YHiH4b0gvxRR/books';
+
+export const fetchBooks = createAsyncThunk('bookstore-app/books/fetchBooks', async () => {
+  try {
+    const { data } = await axios.get(BASE_URL);
+    return [...data];
+  } catch (error) {
+    throw new Error(error);
+  }
+});
 
 // books
-const books = [
-  {
-    id: uuidv4(),
-    title: 'Stay with Me',
-    author: 'Ayobami Adebayo',
-    progress: 64,
-    genre: 'African Literature',
-    chapter: 'Chapter 17',
-  },
-  {
-    id: uuidv4(),
-    title: 'The Hunger Games Trilogy',
-    author: 'Nora Roberts',
-    progress: 43,
-    genre: 'Science Fiction (Sci-Fi)',
-    chapter: 'Chapter 12',
-  },
-  {
-    id: uuidv4(),
-    title: 'The Call of the Wild',
-    author: 'Jack London',
-    progress: 70,
-    genre: 'Adventure',
-    chapter: 'Chapter 11',
-  },
-  {
-    id: uuidv4(),
-    title: 'Circe',
-    author: 'Madeline Miller',
-    progress: 14,
-    genre: 'Fantasy',
-    chapter: 'Chapter 8',
-  },
-  {
-    id: uuidv4(),
-    title: 'To Kill A Mockingbird',
-    author: 'Harper Lee',
-    progress: 4,
-    genre: 'Classics',
-    chapter: 'Chapter 9',
-  },
-];
+const initialState = {
+  books: [],
+  status: 'idle',
+  error: null,
+};
 
 // Reducer
-
-const booksReducer = (state = books, action) => {
-  const index = state.findIndex((book) => book.id === action.id);
+const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
-      return [...state, action.book];
+      return {
+        ...state,
+        books: [...state.books, action.payload],
+      };
     case REMOVE_BOOK:
-      return [...state.slice(0, index), ...state.slice(index + 1)];
+      return {
+        ...state,
+        books: state.books.filter((book) => book.id !== action.payload),
+      };
     default:
       return state;
   }
@@ -64,12 +43,12 @@ const booksReducer = (state = books, action) => {
 // Action Creators
 export const addBook = (book) => ({
   type: ADD_BOOK,
-  book,
+  payload: book,
 });
 
 export const removeBook = (id) => ({
   type: REMOVE_BOOK,
-  id,
+  payload: id,
 });
 
 export default booksReducer;
