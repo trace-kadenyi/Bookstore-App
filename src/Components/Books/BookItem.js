@@ -14,7 +14,7 @@ const BookItem = ({
 
   const handleRemove = () => {
     dispatch(removeBook(id));
-    swal('Deleted!', 'Book successfully removed!', 'success');
+    swal('Done!', 'Book successfully removed!', 'success');
   };
 
   return (

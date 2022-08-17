@@ -21,7 +21,7 @@ const Form = () => {
     };
     if (title.length && author.length) {
       dispatch(addBook(book));
-      swal('Added!', 'Book successfully added!', 'success');
+      swal('Done!', 'Book successfully added!', 'success');
       setTitle('');
       setAuthor('');
     }
