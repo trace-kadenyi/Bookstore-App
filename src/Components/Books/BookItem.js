@@ -8,11 +8,11 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
 
 const BookItem = ({
-  id, title, author, category
+  id, title, author, category,
 }) => {
   const dispatch = useDispatch();
-  let progress = Math.floor(Math.random() * 100);
-  let chapter = Math.floor(Math.random() * 20);
+  const progress = Math.floor(Math.random() * 100);
+  const chapter = Math.floor(Math.random() * 20);
 
   const handleRemove = () => {
     dispatch(removeBook(id));
@@ -39,7 +39,7 @@ const BookItem = ({
       <div className="percentage">
         <CircularProgressbar
           style={{ width: 65, height: 65 }}
-          value = {progress}
+          value={progress}
           text={`${progress}%`}
         />
         Completed

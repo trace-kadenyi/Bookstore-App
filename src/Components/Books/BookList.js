@@ -4,14 +4,13 @@ import BookItem from './BookItem';
 import { fetchBooks } from '../../redux/books/books';
 import Form from './Form';
 
-
 const BookList = () => {
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchBooks());
-  } , []);
+  }, []);
 
   return (
     <div className="booklist">
