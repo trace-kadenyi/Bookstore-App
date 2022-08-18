@@ -8,19 +8,21 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
 
 const BookItem = ({
-  id, title, author, progress, chapter, genre,
+  id, title, author, category,
 }) => {
   const dispatch = useDispatch();
+  const progress = Math.floor(Math.random() * 100);
+  const chapter = Math.floor(Math.random() * 20);
 
   const handleRemove = () => {
     dispatch(removeBook(id));
-    swal('Done!', 'Book successfully removed!', 'success');
+    swal('Done!', `${title} successfully removed`, 'success');
   };
 
   return (
     <li className="bookitem">
       <div>
-        <h4 className="genre">{genre}</h4>
+        <h4 className="genre">{category}</h4>
         <h3 className="title">{title}</h3>
         <p className="author">{author}</p>
         <div className="interactions">
@@ -55,9 +57,7 @@ BookItem.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  chapter: PropTypes.string.isRequired,
-  progress: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default BookItem;

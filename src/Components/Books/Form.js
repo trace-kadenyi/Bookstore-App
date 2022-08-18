@@ -15,13 +15,11 @@ const Form = () => {
       id: uuidv4(),
       title,
       author,
-      progress: 7,
-      chapter: 'Chapter 5',
-      genre: 'African Literature',
+      category: `${['Action', 'Fiction', 'Adventure', 'Classics'][Math.floor(Math.random() * ['Action', 'Fiction', 'Adventure', 'Classics'].length)]}`,
     };
     if (title.length && author.length) {
       dispatch(addBook(book));
-      swal('Done!', 'Book successfully added!', 'success');
+      swal('Done!', `${title} successfully added`, 'success');
       setTitle('');
       setAuthor('');
     }
