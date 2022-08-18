@@ -1,75 +1,66 @@
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
 // Actions
 const ADD_BOOK = 'bookstore-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-app/books/REMOVE_BOOK';
-
+const FETCH_BOOKS = 'bookstore-app/books/FETCH_BOOKS';
+const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/QIVXJVX8YHiH4b0gvxRR/books'
 // books
-const books = [
-  {
-    id: uuidv4(),
-    title: 'Stay with Me',
-    author: 'Ayobami Adebayo',
-    progress: 64,
-    genre: 'African Literature',
-    chapter: 'Chapter 17',
-  },
-  {
-    id: uuidv4(),
-    title: 'The Hunger Games Trilogy',
-    author: 'Nora Roberts',
-    progress: 43,
-    genre: 'Science Fiction (Sci-Fi)',
-    chapter: 'Chapter 12',
-  },
-  {
-    id: uuidv4(),
-    title: 'The Call of the Wild',
-    author: 'Jack London',
-    progress: 70,
-    genre: 'Adventure',
-    chapter: 'Chapter 11',
-  },
-  {
-    id: uuidv4(),
-    title: 'Circe',
-    author: 'Madeline Miller',
-    progress: 14,
-    genre: 'Fantasy',
-    chapter: 'Chapter 8',
-  },
-  {
-    id: uuidv4(),
-    title: 'To Kill A Mockingbird',
-    author: 'Harper Lee',
-    progress: 4,
-    genre: 'Classics',
-    chapter: 'Chapter 9',
-  },
-];
+const books = [];
 
 // Reducer
 
 const booksReducer = (state = books, action) => {
-  const index = state.findIndex((book) => book.id === action.id);
   switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.book];
-    case REMOVE_BOOK:
-      return [...state.slice(0, index), ...state.slice(index + 1)];
+    case `${FETCH_BOOKS}/fulfilled`:
+      return action.payload.books;
+    case  `${ADD_BOOK}/fulfilled`:
+      return [...state, action.payload.book];
+    case `${REMOVE_BOOK}/fulfilled`:
+      return state.filter((book) => book[0] !== action.payload.id);
+
     default:
       return state;
   }
 };
 
 // Action Creators
-export const addBook = (book) => ({
-  type: ADD_BOOK,
-  book,
-});
+export const addBook = createAsyncThunk(
+  ADD_BOOK,
+  async(book) => {
+    await axios.post(BASE_URL, {
+      item_id: book.id,
+      title: book.title,
+      author: book.author,
+      category: book.category,
+    });
+    return {
+      book: [
+        book.id,
+        [{
+          author: book.author,
+          title: book.title,
+          category: book.category,          
+        }]
+      ]
+    }
+  }
+)
 
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
+export const removeBook = createAsyncThunk( REMOVE_BOOK, async(id) => {
+    await axios.delete(`${BASE_URL}/${id}`);
+    return { id };
+  }
+);
+
+export const fetchBooks = createAsyncThunk(
+  FETCH_BOOKS,
+  async() => {
+    const response = await axios.get(BASE_URL);
+    return { books: Object.entries(response.data) }
+  }
+);
+
 
 export default booksReducer;
