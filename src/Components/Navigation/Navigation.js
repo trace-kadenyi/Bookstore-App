@@ -22,6 +22,9 @@ const Navbar = () => {
         <h1>Bookstore CMS</h1>
       </div>
       <div>
+        <FaUser className="userIcon" />
+      </div>
+      <div>
         <nav>
           <ul className="nav">
             {links.map((link) => (
@@ -31,9 +34,6 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
-      </div>
-      <div>
-        <FaUser className="userIcon" />
       </div>
     </div>
   );

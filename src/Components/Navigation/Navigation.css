@@ -38,3 +38,29 @@ a:focus {
   top: 25%;
   right: 5%;
 }
+
+@media screen and (max-width: 750px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav li {
+    padding: 0;
+  }
+
+  .userIcon {
+    position: static;
+  }
+
+  .header-container h1 {
+    text-align: center;
+  }
+}

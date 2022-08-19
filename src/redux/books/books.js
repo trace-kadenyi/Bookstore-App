@@ -61,4 +61,6 @@ export const fetchBooks = createAsyncThunk(
   },
 );
 
+export const selectAllBooks = (state) => state.books;
+
 export default booksReducer;

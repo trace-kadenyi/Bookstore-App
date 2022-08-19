@@ -13,7 +13,8 @@
 .bookitem {
   border: 1px rgb(200, 194, 194) solid;
   background-color: white;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
   align-items: center;
   justify-content: space-between;
 }
@@ -86,9 +87,16 @@ input {
 
 .percentage {
   display: flex;
+  justify-content: space-around;
   border-right: 2px rgb(200, 194, 194) solid;
   height: 80px;
   padding-right: 20px;
+}
+
+.span {
+  margin-top: 20px;
+  margin-left: -30px;
+  color: gray;
 }
 
 .update {
@@ -110,4 +118,47 @@ input {
 
 .completed {
   color: gray;
+}
+
+@media screen and (max-width: 768px) {
+  .bookitem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .head-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-bottom: 1px rgb(200, 194, 194) solid;
+    width: 60%;
+  }
+
+  .percentage {
+    border-right: none;
+    border-bottom: 1px rgb(200, 194, 194) solid;
+    width: 50%;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .span {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+
+  form {
+    grid-template-columns: 100%;
+  }
+
+  .submit {
+    padding: 15px;
+  }
 }
