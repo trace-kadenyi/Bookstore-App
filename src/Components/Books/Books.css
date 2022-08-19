@@ -17,6 +17,8 @@
   grid-template-columns: 2fr 2fr 1fr;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 .bookitem > * {
@@ -60,7 +62,7 @@ label {
 form {
   display: grid;
   gap: 20px;
-  grid-template-columns: 40% 30% 25%;
+  grid-template-columns: 2fr 2fr 1fr;
 }
 
 input {

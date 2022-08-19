@@ -1,12 +1,12 @@
 h1 {
-  color: rgb(11, 53, 110);
+  color: rgb(42, 126, 165);
   font-size: 3rem;
 }
 
 .header-container {
   position: relative;
   display: flex;
-  padding: 0 30px;
+  padding: 0 60px;
   align-items: center;
   justify-content: flex-start;
 }
