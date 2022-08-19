@@ -119,7 +119,7 @@ input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto 20px;
   }
 
   .head-section {
