@@ -38,7 +38,10 @@
   border-right: 1px rgb(200, 194, 194) solid;
   background-color: white;
   height: 20px;
-  color: rgb(126, 126, 217);
+  color: #8c0b3d;
+}
+.interactions button:hover {
+  text-decoration: overline;
 }
 
 .title {
@@ -49,10 +52,7 @@
 .genre {
   margin-bottom: -25px;
   color: gray;
-}
-
-.author {
-  color: rgb(126, 126, 217);
+  text-decoration: underline;
 }
 
 label {
@@ -74,17 +74,8 @@ input {
 .submit {
   border-radius: 5px;
   border: none;
-  background-color: rgb(42, 126, 165);
+  background-color: #45041d;
   color: white;
-}
-
-.completionCircle {
-  border: 5px rgb(42, 126, 165) solid;
-  border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
-  border-right-color: gray;
-  margin-right: 20px;
 }
 
 .percentage {
@@ -103,7 +94,7 @@ input {
 
 .update {
   padding: 10px;
-  background-color: rgb(42, 126, 165);
+  background-color: #8c0b3d;
   color: white;
   border-radius: 5px;
   border: none;

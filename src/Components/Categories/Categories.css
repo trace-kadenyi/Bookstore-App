@@ -1,8 +1,6 @@
 .categories-container {
   background-color: rgb(245, 240, 240);
   min-height: 50vh;
-
-  /* border: 2px red solid; */
   position: relative;
 }
 
@@ -11,11 +9,22 @@
   margin: 50px;
   width: 200px;
   border-radius: 30px;
-  background-color: rgb(42, 126, 165);
+  background-color: #45041d;
   border: none;
   color: white;
   font-size: 1.5rem;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   letter-spacing: 0.07rem;
+  box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0 #8c0b3d;
+}
+
+.status:hover {
+  box-shadow: 0 0 0 0;
+  top: 5px;
+  left: 5px;
 }
 
 .resolution {

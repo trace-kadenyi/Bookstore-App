@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import './Books.css';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -38,10 +38,14 @@ const BookItem = ({
       </div>
       <div className="percentage">
         <CircularProgressbar
-          style={{ width: 55, height: 85 }}
+          styles={buildStyles({
+            textColor: 'black',
+            pathColor: '#8c0b3d',
+          })}
           value={progress}
           text={`${progress}%`}
         />
+
         <span className="span">Completed</span>
       </div>
       <div>
