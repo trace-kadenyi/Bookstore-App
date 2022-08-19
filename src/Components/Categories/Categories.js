@@ -7,13 +7,14 @@ const Categories = () => {
   const myCategories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     dispatch(checkStatus());
+    e.target.style.display = 'none';
   };
   return (
     <div className="categories-container">
       <button type="button" className="status" onClick={handleClick}>Check Status</button>
-      <h3>{myCategories}</h3>
+      <h3 className="resolution">{myCategories}</h3>
     </div>
   );
 };

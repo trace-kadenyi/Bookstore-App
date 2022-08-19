@@ -16,12 +16,12 @@ const BookItem = ({
 
   const handleRemove = () => {
     dispatch(removeBook(id));
-    swal('Done!', `${title} successfully removed`, 'success');
+    swal('Done!', `${title} has been successfully removed`, 'success');
   };
 
   return (
     <li className="bookitem">
-      <div>
+      <div className="head-section">
         <h4 className="genre">{category}</h4>
         <h3 className="title">{title}</h3>
         <p className="author">{author}</p>
@@ -38,15 +38,19 @@ const BookItem = ({
       </div>
       <div className="percentage">
         <CircularProgressbar
-          style={{ width: 65, height: 65 }}
+          style={{ width: 55, height: 85 }}
           value={progress}
           text={`${progress}%`}
         />
-        Completed
+        <span className="span">Completed</span>
       </div>
       <div>
         <h3 className="chapter">CURRENT CHAPTER</h3>
-        <p className="verse">{chapter}</p>
+        <p className="verse">
+          Chapter
+          {' '}
+          { chapter }
+        </p>
         <button type="button" className="update">UPDATE PROGRESS</button>
       </div>
     </li>
