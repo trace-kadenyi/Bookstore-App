@@ -40,6 +40,7 @@
   height: 20px;
   color: #8c0b3d;
 }
+
 .interactions button:hover {
   text-decoration: overline;
 }
@@ -62,10 +63,16 @@ label {
 form {
   display: grid;
   gap: 20px;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr 1.5fr 1.5fr;
 }
 
 input {
+  padding: 15px;
+  border: 1px rgb(200, 194, 194) solid;
+  border-radius: 5px;
+}
+
+#categories {
   padding: 15px;
   border: 1px rgb(200, 194, 194) solid;
   border-radius: 5px;

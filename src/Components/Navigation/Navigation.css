@@ -28,6 +28,7 @@ a:hover {
   text-decoration: overline;
   font-weight: bold;
 }
+
 a:focus {
   color: gray;
   text-decoration: none;
