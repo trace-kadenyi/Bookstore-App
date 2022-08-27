@@ -7,6 +7,7 @@ import { addBook } from '../../redux/books/books';
 const Form = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
   const handleAdd = (e) => {
@@ -15,13 +16,14 @@ const Form = () => {
       id: uuidv4(),
       title,
       author,
-      category: `${['Action', 'Fiction', 'Adventure', 'Classics'][Math.floor(Math.random() * ['Action', 'Fiction', 'Adventure', 'Classics'].length)]}`,
+      category,
     };
-    if (title.length && author.length) {
+    if (title.length && author.length && category) {
       dispatch(addBook(book));
       swal('Done!', `${title} has been successfully added`, 'success');
       setTitle('');
       setAuthor('');
+      setCategory('');
     }
   };
   return (
@@ -44,6 +46,20 @@ const Form = () => {
         placeholder="AUTHOR"
         required
       />
+      <select name="categories" id="categories" onChange={(e) => setCategory(e.target.value)}>
+        <option disabled selected value> -- Select category -- </option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="African Literature">African Literature</option>
+        <option value="Classics">Classics</option>
+        <option value="Historical">Historical</option>
+        <option value="Literary Fiction">Literary Fiction</option>
+        <option value="Non-Fiction">Non-Fiction</option>
+        <option value="Romantic Suspence">Romantic Suspence</option>
+        <option value="Romance">Romance</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Thriller">Thriller</option>
+      </select>
       <button
         type="submit"
         className="submit"
