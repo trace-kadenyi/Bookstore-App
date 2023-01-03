@@ -11,7 +11,7 @@
 - Framework: Reactjs
 
 ## Live Demo
-[Live Demo Link](https://transcendent-tulumba-e7b089.netlify.app/)
+[Live Demo Link](https://bookstore-webapp-2022.netlify.app/)
 
 ## Getting started
 
